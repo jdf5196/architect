@@ -1,0 +1,28 @@
+<div class='projects' ng-init='init()'>
+	<div class='work container'>
+		<img class='workSymbol' src='/images/compass.jpg'>
+		<h3>What I've been Up To</h2>
+		<p class='information'>Here is a selection of some of my recent projects.</p>
+	</div>
+</div>
+<div class='wrapper'>
+	<ul class='projectsList'>
+		<li class='project' ng-repeat='project in projects' ng-mouseenter='hover = true' ng-mouseleave='hover = false'>
+				<div class='projectDiv' style='background-image:url({{project.images[0].image}})'>
+					<div class='overlay'>
+						<h4>{{project.title}}</h4>
+						<button class='wrap' ng-hide='hover === true'>.</button>
+						<a class='projectLink' ng-click='background(projects)' ng-show='hover === true' href='/#/projects/{{project.number}}'>
+						<div class='btn btn-info projectBtn'>View Project</div></a>
+					</div>
+				</div>
+		</li>
+	</ul>
+</div>
+<div class='contactContainer'>
+	<div class='container'>
+		<h4>Would you like to know more?</h4>
+		<br>
+		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary'>Contact Me!</button></a>
+</div>
+

@@ -1,0 +1,52 @@
+<div class='projectHeader'>
+	<div class='idPage container'>
+		<a href='/#/projects'><div class='box'>
+			<div class='topleft square'></div>
+			<div class='topright square'></div>
+			<div class='bottomleft square'></div>
+			<div class='bottomright square'></div>
+		</div></a>
+		<h3>{{project.title}}</h3>
+	</div>
+</div>
+<div class='idPicDiv' style='background-image:url({{project.mainImage}})'>
+</div>
+<div class='description-container-1'>
+	<div class='description1'>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;{{project.description}}</span>
+	</div>
+	<div class='picture1' style='background-image:url({{project.images[0].url}}'></div>
+</div>
+<div class='description-container-1'>
+	<div class='description2'>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;{{project.description2}}</span>
+	</div>
+	<div class='picture2' style='background-image:url({{project.images[1].url}}'></div>
+</div>
+
+
+<div class='slideshowWrapper'>
+	<div class="container show" ng-repeat="image in project.images" ng-hide="!isCurrentSlideIndex($index)">
+    		<img class="slide" ng-src="{{image.url}}">
+    		<p class='slideDescription' ng-hide="!isCurrentSlideIndex($index)">{{image.description}}</p>
+
+    	<a ng-click="prevSlide()"><img class='prev' src='/images/left-arrow.png'></a>
+    	<a ng-click="nextSlide()"><img class='next' src='/images/right-arrow.png'></a>
+    	<nav class="nav slideshow">
+       		<div class="navWrapper">
+            	<ul class="dots">
+                	<li class="dot" ng-repeat="image in project.images">
+                    	<a href='' ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+            	</ul>
+        	</div>
+    	</nav>
+	</div>
+</div>
+
+<div class='contactContainer IDcontact'>
+	<div class='container'>
+		<h4>Would you like to know more?</h4>
+		<br>
+		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary'>Contact Me!</button></a>
+</div>

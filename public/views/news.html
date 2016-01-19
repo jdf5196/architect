@@ -1,0 +1,31 @@
+<div class='projects' ng-init='init()'>
+	<div class='work container'>
+		<img class='workSymbol' src='/images/news.png'>
+		<h3>What People Are Saying</h2>
+		<p class='information'>Here are a few news articles about my work.</p>
+	</div>
+</div>
+<hr>
+
+<div class='newsWrapper wrapper'>
+	<div class='news'>
+		<div class='newsContainer container' ng-repeat='news in news | orderBy: "-date" '>
+			<h3 class='newsTitle'><a href='{{news.url}}' target='_blank'>{{news.title}}</a></h3>
+			<p>by {{news.author}}
+			<div class = 'row'>
+				<span class = 'description'>
+					<p class='newsText'>{{news.description}}</p>
+					<a href='{{news.url}}' target='_blank'>Read More at {{news.publication}}</a>
+				</span>
+			</div>
+			<hr>
+		</div>
+	</div>
+</div>
+
+<div class='contactContainer'>
+	<div class='container'>
+		<h4>Would you like to know more?</h4>
+		<br>
+		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary'>Contact Me!</button></a>
+</div>
