@@ -4,6 +4,14 @@ var router = express.Router();
 var Project = mongoose.model('Project');
 var News = mongoose.model('News');
 var Image = mongoose.model('Image');
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport('SMTP', {
+	service: 'Gmail',
+	auth: {
+		user: 'johfra8@gmail.com',
+		pass: 'pnzs nrdb dzzw tpsd'
+	}
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -174,6 +182,21 @@ router.put('/projectlist/:project/images', function(req, res, next){
 		if(err){return next(err);}
 		res.json(project);
 	});
+});
+
+router.post('/contact', function(req, res, next){
+
+	transporter.sendMail({
+		from: req.body.contactEmail,
+		to: 'jfrancona87@gmail.com',
+		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
+		text: req.body.contactMessage,
+		html: req.body.contactMessage
+	}, function(err){
+		if(err){console.log(err);}
+	});
+	transporter.close();
+	res.json('success');
 });
 
 module.exports = router;

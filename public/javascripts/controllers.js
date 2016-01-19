@@ -102,8 +102,21 @@ app.controller('aboutCtrl', ['$scope', function($scope){
 
 }]);
 
-app.controller('contactCtrl', ['$scope', function($scope){
+app.controller('contactCtrl', ['$scope', '$http', function($scope, $http){
+	$scope.sendMail = function(){
 
+		var data = ({
+			contactEmail: $scope.contactEmail,
+			contactName: $scope.contactName,
+			contactMessage: $scope.contactMessage
+		});
+		$http.post('/contact', data).success(function(){
+			window.alert('Message Sent');
+			$scope.contactEmail = '';
+			$scope.contactName = '';
+			$scope.contactMessage = '';
+		});
+	}
 }]);
 
 app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', function($scope, newslist, projectsList){

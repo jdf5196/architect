@@ -51,4 +51,4 @@ app.config(['$routeProvider', function($routeProvider){
 			}]
 		}
 	})
-}]);s
+}]);
