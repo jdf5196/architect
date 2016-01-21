@@ -80,3 +80,9 @@ app.service('newslist', ['$http', function($http){
 
 	return news;
 }]);
+
+app.service('auth', ['$http', '$window', function($http, $window){
+	var auth = {};
+
+	return auth;
+}]);
