@@ -1,4 +1,6 @@
-app.controller('MainCtrl', ['$scope', '$location', function($scope, $location){
+app.controller('MainCtrl', ['$scope', '$location', 'auth', function($scope, $location, auth){
+
+	$scope.isLoggedIn = auth.isLoggedIn;
 
 		$scope.init = function(){
 			var path = $location.path();
@@ -119,9 +121,13 @@ app.controller('contactCtrl', ['$scope', '$http', function($scope, $http){
 	}
 }]);
 
-app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', function($scope, newslist, projectsList){
+app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', function($scope, newslist, projectsList, auth){
 	$scope.news = newslist.news;
 	$scope.projects = projectsList.projects;
+	$scope.isLoggedOut = auth.isLoggedOut;
+	$scope.isLoggedIn = auth.isLoggedIn;
+	$scope.logOut = auth.logOut;
+	$scope.user = {};
 
 	$scope.reload = function(){
 		window.location.reload();
@@ -141,6 +147,7 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', function($scop
 	};
 
 	$scope.deleteNews = function(news){
+		console.log(payload());
 		newslist.delete(news);
 	};
 
@@ -194,6 +201,18 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', function($scop
 
 	$scope.deleteImage = function(image, project){
 		projectsList.deleteImage(image, project._id);
+	};
+
+	$scope.register = function(){
+		auth.register($scope.user).error(function(error){
+			$scope.error = error;
+		});
+	};
+
+	$scope.logIn = function(){
+		auth.logIn($scope.user).error(function(error){
+			$scope.error = error;
+		});
 	};
 
 }]);

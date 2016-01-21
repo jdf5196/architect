@@ -41,6 +41,7 @@
 								<li ng-click='background("news")' ng-class='{active: isActive("/news")}' class='list'><a href='/#/news'>News</a></li>
 								<li ng-click='background("about")' ng-class='{active: isActive("/about")}' class='list'><a href='/#/about'>About</a></li>
 								<li ng-click='background("contact")' ng-class='{active: isActive("/contact")}' class='list'><a href='/#/contact'>Contact</a></li>
+								<li ng-if='isLoggedIn()' ng-click='background("edit")' ng-class='{active: isActive("/edit")}' class='list'><a href='/#/edit'>Edit</a></li>
 							</ul>
 						</div>
 					</div>

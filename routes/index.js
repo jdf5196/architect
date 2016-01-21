@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 var express = require('express');
+var passport = require('passport');
+var jwt = require('express-jwt');
 var router = express.Router();
 var Project = mongoose.model('Project');
 var News = mongoose.model('News');
 var User = mongoose.model('User');
 var nodemailer = require('nodemailer');
 var secret = require('../bin/config')
-var passport = require('passport');
-var jwt = require('express-jwt');
-var auth = jwt({secret: secret, userProperty: 'payload'});
+var Auth = jwt({secret: secret, userProperty: 'payload'});
 
 var transporter = nodemailer.createTransport('SMTP', {
 	service: 'Gmail',
@@ -45,7 +45,7 @@ router.get('/projectlist/:project', function(req, res, next) {
   });
 });
 
-router.post('/projectlist', auth, function(req, res, next){
+router.post('/projectlist', Auth, function(req, res, next){
 	var project = new Project(req.body);
 
 	project.save(function(err, project){
@@ -55,17 +55,18 @@ router.post('/projectlist', auth, function(req, res, next){
 	});
 });
 
-router.post('/newslist', auth, function(req, res, next){
-	var news = new News(req.body);
+router.post('/newslist', Auth, function(req, res, next){
+	console.log(req);
+	/*var news = new News(req.body);
 
 	news.save(function(err, news){
 		if(err){return next(err);}
 
 		res.json(news);
-	});
+	});*/
 });
 
-router.put('/newslist/:news', auth, function(req, res, next){
+router.put('/newslist/:news', Auth, function(req, res, next){
 	var news = req.news;
 
 	news.publication = req.body.publication;
@@ -81,7 +82,7 @@ router.put('/newslist/:news', auth, function(req, res, next){
 	});
 });
 
-router.put('/projectlist/:project', auth, function(req, res, next){
+router.put('/projectlist/:project', Auth, function(req, res, next){
 	var project = req.project;
 
 	project.title = req.body.title;
@@ -98,7 +99,7 @@ router.put('/projectlist/:project', auth, function(req, res, next){
 	});
 });
 
-router.post('/projectlist/:project/images', auth, function(req, res, next){
+router.post('/projectlist/:project/images', Auth, function(req, res, next){
 	console.log(req.body);
 
 	var project = req.project;
@@ -143,7 +144,7 @@ router.get('/newslist/:news', function(req, res){
 	res.json(req.news);
 });
 
-router.delete('/newslist/:news', auth, function(req, res, next){
+router.delete('/newslist/:news', Auth, function(req, res, next){
 	News.remove({news:req.news}, function(err){
 		if(err){
 			return next(err);
@@ -157,7 +158,7 @@ router.delete('/newslist/:news', auth, function(req, res, next){
 	});
 });
 
-router.delete('/projectlist/:project', auth, function(req, res, next){
+router.delete('/projectlist/:project', Auth, function(req, res, next){
 	Project.remove({project:req.project}, function(err){
 		if(err){
 			return next(err);
@@ -171,7 +172,7 @@ router.delete('/projectlist/:project', auth, function(req, res, next){
 	});
 });
 
-router.put('/projectlist/:project/images', auth, function(req, res, next){
+router.put('/projectlist/:project/images', Auth, function(req, res, next){
 	var image;
 	var project = req.project;
 
@@ -190,7 +191,7 @@ router.put('/projectlist/:project/images', auth, function(req, res, next){
 });
 
 router.post('/contact', function(req, res, next){
-	console.log(config);
+	console.log(secret);
 	/*transporter.sendMail({
 		from: req.body.contactEmail,
 		to: 'jfrancona87@gmail.com',
@@ -204,13 +205,27 @@ router.post('/contact', function(req, res, next){
 	res.json('success');
 });
 
+router.post('/register', function(req, res, next){
+	if(!req.body.username || !req.body.password){
+		return res.status(400).json({message: 'Please fill out all fields.'});
+	}
+	var user = new User();
+	user.username = req.body.username;
+	user.setPassword(req.body.password);
+	user.save(function(err){
+		if(err){return next(err);}
+		console.log(user.generateJWT())
+		return res.json({token: user.generateJWT()})
+	});
+});
+
 router.post('/login', function(req, res, next){
 	if(!req.body.username || !req.body.password){
-		return res.status(400).json({message: 'Please fill out all fields'});
+		return res.status(400).json({message:'Please fill out all fields.'});
 	}
-
 	passport.authenticate('local', function(err, user, info){
 		if(err){return next(err);}
+
 		if(user){
 			return res.json({token: user.generateJWT()});
 		}

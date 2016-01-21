@@ -6,12 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+mongoose.connect('mongodb://localhost/architect');
 require('./models/Projects');
 require('./models/News');
 require('./models/Users');
 require('./config/passport');
-
-mongoose.connect('mongodb://localhost/architect');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
