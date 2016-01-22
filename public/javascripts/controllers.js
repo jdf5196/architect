@@ -30,7 +30,11 @@ app.controller('MainCtrl', ['$scope', '$location', 'auth', function($scope, $loc
 			else if(path === '/contact'){
 				$scope.backgroundImage = '/images/write.jpeg';
 				$scope.class = 'pageNav';
-			};
+			}
+			else if(path === '/edit'){
+				$scope.backgroundImage = '';
+				$scope.class = 'pageNav';
+			}
 		}
 
 		$scope.background = function(location){
@@ -51,10 +55,14 @@ app.controller('MainCtrl', ['$scope', '$location', 'auth', function($scope, $loc
 				$scope.class = 'pageNav';
 			}
 			if(location === 'contact'){
-				$scope.backgroundImage = '/images/write.jpeg'
+				$scope.backgroundImage = '/images/write.jpeg';
 				$scope.class = 'pageNav';
 			}
-		}
+			if(location === 'edit'){
+				$scope.backgroundImage = '';
+				$scope.class = 'pageNav';
+			};
+		};
 
 }]);
 
@@ -128,6 +136,8 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', functi
 	$scope.isLoggedIn = auth.isLoggedIn;
 	$scope.logOut = auth.logOut;
 	$scope.user = {};
+	$scope.userLogIn = {};
+	$scope.userRegister = {};
 
 	$scope.reload = function(){
 		window.location.reload();
@@ -147,7 +157,6 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', functi
 	};
 
 	$scope.deleteNews = function(news){
-		console.log(payload());
 		newslist.delete(news);
 	};
 
@@ -204,14 +213,19 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', functi
 	};
 
 	$scope.register = function(){
-		auth.register($scope.user).error(function(error){
+		auth.register($scope.userRegister).error(function(error){
 			$scope.error = error;
 		});
 	};
 
 	$scope.logIn = function(){
-		auth.logIn($scope.user).error(function(error){
+		auth.logIn($scope.userLogIn).error(function(error){
 			$scope.error = error;
+			$scope.userLogIn.username = '';
+			$scope.userLogIn.password = '';
+		}).success(function(){
+			$scope.userLogIn.username = '';
+			$scope.userLogIn.password = '';
 		});
 	};
 

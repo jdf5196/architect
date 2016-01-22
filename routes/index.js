@@ -7,7 +7,9 @@ var Project = mongoose.model('Project');
 var News = mongoose.model('News');
 var User = mongoose.model('User');
 var nodemailer = require('nodemailer');
-var secret = require('../bin/config')
+var secret = require('../bin/config');
+var crypto = require('crypto');
+var uuid = require('node-uuid');
 var Auth = jwt({secret: secret, userProperty: 'payload'});
 
 var transporter = nodemailer.createTransport('SMTP', {
@@ -56,14 +58,13 @@ router.post('/projectlist', Auth, function(req, res, next){
 });
 
 router.post('/newslist', Auth, function(req, res, next){
-	console.log(req);
-	/*var news = new News(req.body);
+	var news = new News(req.body);
 
 	news.save(function(err, news){
 		if(err){return next(err);}
 
 		res.json(news);
-	});*/
+	});
 });
 
 router.put('/newslist/:news', Auth, function(req, res, next){
@@ -191,32 +192,44 @@ router.put('/projectlist/:project/images', Auth, function(req, res, next){
 });
 
 router.post('/contact', function(req, res, next){
-	console.log(secret);
-	/*transporter.sendMail({
+	var registerId = uuid.v4();
+
+	transporter.sendMail({
 		from: req.body.contactEmail,
 		to: 'jfrancona87@gmail.com',
 		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
-		text: req.body.contactMessage,
-		html: req.body.contactMessage
+		text: registerId,
+		html: registerId
 	}, function(err){
 		if(err){console.log(err);}
 	});
-	transporter.close();*/
+	transporter.close();
 	res.json('success');
 });
 
 router.post('/register', function(req, res, next){
-	if(!req.body.username || !req.body.password){
+	var password = uuid.v4();
+
+	if(!req.body.username){
 		return res.status(400).json({message: 'Please fill out all fields.'});
 	}
 	var user = new User();
 	user.username = req.body.username;
-	user.setPassword(req.body.password);
+	user.setPassword(password);
 	user.save(function(err){
 		if(err){return next(err);}
-		console.log(user.generateJWT())
 		return res.json({token: user.generateJWT()})
 	});
+	transporter.sendMail({
+		from: req.body.contactEmail,
+		to: 'jfrancona87@gmail.com',
+		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
+		text: 'This is your login information: username: '+req.body.username+ ' password: '+ password,
+		html: 'This is your login information: username: '+req.body.username+ ' password: '+ password
+	}, function(err){
+		if(err){console.log(err);}
+	});
+	transporter.close();
 });
 
 router.post('/login', function(req, res, next){

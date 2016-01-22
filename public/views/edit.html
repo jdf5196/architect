@@ -1,5 +1,6 @@
 <div class='projects'>
 	<div class='work container'>
+        <img class='workSymbol' src='/images/hammer.png'>
 		<h3>Time to Edit</h2>
 	</div>
 </div>
@@ -14,28 +15,21 @@
         <h3>Log In</h3>
 
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" ng-model="user.username"></input>
+            <input type="text" class="form-control" placeholder="Username" ng-model="userLogIn.username"></input>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" ng-model="user.password"></input>
+            <input type="password" class="form-control" placeholder="Password" ng-model="userLogIn.password"></input>
         </div>
         <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 </div>
 
 <div class='container' ng-show='isLoggedOut()'>
-    <div ng-show="error" class="alert alert-danger row">
-        <span>{{ error.message }}</span>
-    </div>
-
     <form ng-submit="register()" style="margin-top:30px;">
         <h3>Register</h3>
 
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" ng-model="user.username"></input>
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" ng-model="user.password"></input>
+            <input type="text" class="form-control" placeholder="Username" ng-model="userRegister.username"></input>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

@@ -68,8 +68,6 @@ app.service('newslist', ['$http', 'auth', function($http, auth){
 	news.create = function(news){
 		return $http.post('/newslist', news, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
-		}).success(function(data){
-			news.news.push(data);
 		});
 	};
 
@@ -132,7 +130,7 @@ app.service('auth', ['$http', '$window', function($http, $window){
 
 	auth.register = function(user){
 		return $http.post('/register', user).success(function(data){
-			auth.saveToken(data.token);
+			window.alert('Email sent with password.')
 		});
 	};
 
