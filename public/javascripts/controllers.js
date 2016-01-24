@@ -129,7 +129,7 @@ app.controller('contactCtrl', ['$scope', '$http', function($scope, $http){
 	}
 }]);
 
-app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', function($scope, newslist, projectsList, auth){
+app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http', function($scope, newslist, projectsList, auth, $http){
 	$scope.news = newslist.news;
 	$scope.projects = projectsList.projects;
 	$scope.isLoggedOut = auth.isLoggedOut;
@@ -138,6 +138,7 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', functi
 	$scope.user = {};
 	$scope.userLogIn = {};
 	$scope.userRegister = {};
+	var payload = auth.currentUser;
 
 	$scope.reload = function(){
 		window.location.reload();
