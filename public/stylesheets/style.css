@@ -148,6 +148,12 @@ body{
 	background-color:white;
 }
 
+.attribution{
+	font-size:10px;
+	color:grey;
+	text-align:right;
+}
+
 .symbolDiv{
 	height:100px;
 	width:100px;
