@@ -6,6 +6,23 @@
 </div>
 <hr>
 <button class='btn btn-danger' ng-click='logOut()' ng-hide='isLoggedOut()'>Log Out</button>
+<br>
+<div class='container' ng-if='isLoggedIn()'>
+    <div ng-show="error" class="alert alert-danger row">
+        <span>{{ error.message }}</span>
+    </div>
+    <form ng-submit="change()" style="margin-top:30px;">
+        <h3>Change Password</h3>
+
+        <div class="form-group">
+            <input type='password' class='form-control' placeholder='Current Password' ng-model='change.currentPassword' required></input>
+            <input type="password" class="form-control" placeholder="New Password" ng-model="change.newPassword" required></input>
+            <input type='password' class='form-control' placeholder='Enter New Password Again' ng-model='change.newPassword2' required></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </form>
+</div>
+
 <div class='container' ng-show='isLoggedOut()'>
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>

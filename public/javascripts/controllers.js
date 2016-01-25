@@ -135,10 +135,7 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	$scope.isLoggedOut = auth.isLoggedOut;
 	$scope.isLoggedIn = auth.isLoggedIn;
 	$scope.logOut = auth.logOut;
-	$scope.user = {};
-	$scope.userLogIn = {};
-	$scope.userRegister = {};
-	var payload = auth.currentUser;
+	var payload = auth.currentUser();
 
 	$scope.reload = function(){
 		window.location.reload();
@@ -228,6 +225,28 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 			$scope.userLogIn.username = '';
 			$scope.userLogIn.password = '';
 		});
+	};
+
+	$scope.change = function(){
+		if($scope.change.newPassword != $scope.change.newPassword2){
+			window.alert('Passwords do not match');
+			return
+		}
+		else{
+			auth.change(payload._id, {
+				oldPassword: $scope.change.currentPassword,
+				Password: $scope.change.newPassword
+			}).error(function(error){
+				$scope.error = error;
+				$scope.change.currentPassword = '';
+				$scope.change.newPassword = '';
+				$scope.change.newPassword2 = '';
+			}).success(function(){
+				$scope.change.currentPassword = '';
+				$scope.change.newPassword = '';
+				$scope.change.newPassword2 = '';
+			});
+		};
 	};
 
 }]);

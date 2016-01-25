@@ -137,6 +137,18 @@ router.param('news', function(req, res, next, id){
 	});
 });
 
+router.param('user', function(req, res, next, id){
+	var query = User.findById(id);
+
+	query.exec(function(err, user){
+		if(err){return next(err);}
+		if(!user){return next(new Error('can\'t find user'));}
+
+		req.user = user;
+		return next();
+	});
+});
+
 router.get('/projectlist/:project/images', function(req, res){
 	res.json(req.project.images);
 });
@@ -223,13 +235,32 @@ router.post('/register', function(req, res, next){
 	transporter.sendMail({
 		from: req.body.contactEmail,
 		to: 'jfrancona87@gmail.com',
-		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
+		subject: 'Website Registration Message',
 		text: 'This is your login information: username: '+req.body.username+ ' password: '+ password,
 		html: 'This is your login information: username: '+req.body.username+ ' password: '+ password
 	}, function(err){
 		if(err){console.log(err);}
 	});
 	transporter.close();
+});
+
+router.put('/register/:user', Auth, function(req, res, next){
+	var valid = req.user.validPassword(req.body.oldPassword);
+	if(valid === false){
+		return res.status(400).json({message: 'Current Password Incorrect'});
+	}
+	else if(valid === true){
+
+		var salt = crypto.randomBytes(16).toString('hex');
+		var hash = crypto.pbkdf2Sync(req.body.Password, salt, 1000, 64).toString('hex');
+
+		req.user.salt = salt;
+		req.user.hash = hash;
+		req.user.save(function(err, user){
+			if(err){return next(err);}
+			res.json(user);
+		});
+	};	
 });
 
 router.post('/login', function(req, res, next){

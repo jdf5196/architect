@@ -1,3 +1,5 @@
-var word = "a secret";
+
+
+var word = 'a secret'
 
 module.exports = word;

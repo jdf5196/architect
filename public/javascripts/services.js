@@ -48,7 +48,6 @@ app.service('projectsList', ['$http', 'auth', function($http, auth){
 		}).success(function(data){
 		});
 	};
-
 	return projects;
 }]);
 
@@ -137,11 +136,19 @@ app.service('auth', ['$http', '$window', function($http, $window){
 	auth.logIn = function(user){
 		return $http.post('/login', user).success(function(data){
 			auth.saveToken(data.token);
-		});
+					});
 	};
 
 	auth.logOut = function(){
 		$window.localStorage.removeItem('architect-token');
+	};
+
+	auth.change = function(user, data){
+		return $http.put('/register/'+ user, data, {
+			headers: {Authorization: 'Bearer '+auth.getToken()}
+		}).success(function(){
+			window.alert('Password Changed');
+		});
 	};
 
 	return auth;
