@@ -1,3 +1,9 @@
+
+
+.navbar-nav{
+	font-size:15px;
+}
+
 .navbar-inverse{
 	background-color: rgba(0, 0, 0, 0);
 	border-color: rgba(0, 0, 0, 0);
@@ -20,6 +26,8 @@
 body{
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 	background-color: black;
+	height:100%;
+	font-size:10px;
 }
 
 .name{
@@ -43,6 +51,7 @@ body{
 .pageNav{
 	background-color:black;
 	border-color:black;
+	min-height:5.5vh;
 }
 
 .pageNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>.active>a, .pageNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>.active>a:hover{
@@ -96,15 +105,14 @@ body{
 .home{
 	text-align: center;
 	color: white;
-	margin-top: 18.3em;
+	margin-top: 183px;
+	min-height:75vh;
 
 }
 
 .home>h1{
-	letter-spacing: 10px;
+	letter-spacing: 25px;
 	font-size: 70px;
-	font-weight: bold;
-	-webkit-text-stroke: 2px black;
 }
 
 .home>h3{
@@ -133,39 +141,50 @@ body{
 }
 
 .work{
+	min-height: 36vh;
 	margin-top: 50px;
 	text-align:center;
 	width: 100%;
 	background-color:rgba(0,0,0,.5);
 	color: white;
-	height: 300px;
 }
 
 .workSymbol{
 	height: 100px;
 	border-radius: 50%;
-	margin-top: 6em;
+	margin-top: 60px;
 	background-color:white;
 }
 
-.attribution{
+.attribution, .attribution>a{
 	font-size:10px;
-	color:grey;
+	color:rgba(128, 128, 128, 0.4);
 	text-align:right;
+}
+
+.developer, .developer>a{
+	font-size:10px;
+	text-align:left;
+	color:rgba(128, 128, 128, 0.4);
+	margin-top:-15px;
+}
+
+.developer>a{
+	text-decoration: underline;
 }
 
 .symbolDiv{
 	height:100px;
 	width:100px;
 	border-radius:50%;
-	margin-top:10em;
+	margin-top:100px;
 	background-color:white;
 	background-size:70px;
 	background-repeat:no-repeat;
 	background-position:center;
 	margin-right:auto;
 	margin-left:auto;
-	margin-top:6em;
+	margin-top:60px;
 }
 
 .projects{
@@ -175,7 +194,6 @@ body{
 
 .wrapper{
 	width:100%;
-	min-height:400px;
 	text-align:center;
 	margin-right:auto;
 	margin-left:auto;
@@ -185,6 +203,10 @@ body{
 	padding-bottom:20px;
 	padding-right:40px;
 	padding-left:40px;
+}
+
+.projectWrapper{
+	min-height: 50vh;
 }
 
 .projectsList{
@@ -321,7 +343,7 @@ body{
 	text-align:center;
 	color:white;
 	background-color:rgba(0,0,0,.5);
-	height:160px;
+	min-height:11vh;
 }
 
 .IDcontact{
@@ -347,7 +369,7 @@ body{
 	padding-top:60px;
 	background-color:rgba(0,0,0,.5);
 	color:white;
-	height:90%;
+	min-height:61vh;
 }
 
 .contactLeft{
@@ -595,6 +617,7 @@ a>h4{
 .newsWrapper{
 	margin-top:-41px;
 	background-color:#B8B8B8;
+	min-height:50vh;
 }
 
 .newsTitle{
@@ -604,6 +627,16 @@ a>h4{
 
 .newsText{
 	color:black;
+}
+
+.news{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.editContainer{
+	color:white;
 }
 
 @media (min-width: 767px){
@@ -635,7 +668,7 @@ a>h4{
 	}
 
 	.home{
-		margin-top:20em;
+		margin-top:200px;
 	}
 
 	.button > a{
@@ -672,10 +705,6 @@ a>h4{
 		margin-top:-70px;
 	}
 
-	.newsContainer{
-		margin-top:50px;
-	}
-
 	.project{
 		width:80%;
 		min-width:400px;
@@ -695,6 +724,15 @@ a>h4{
 		color:grey;
 	}
 
+	.news{
+		padding-top:50px;
+		margin-top:49px;
+	}
+
+	.newsContact{
+		margin-top:-50px;
+	}
+
 	.projectBtn{
 		height:300px;
 		width:100%;
@@ -712,10 +750,46 @@ a>h4{
 	}
 
 	.idPicDiv{
-		height:300px;
+		height:400px;
 	}
 
 	.form-button{
 		margin-bottom: 139px;
+	}
+
+	.description1, .description2, .picture1, .picture2{
+		float:none;
+		width:100%;
+	}
+
+	.description2{
+		margin-top:400px;
+	}
+
+	.slideshowWrapper{
+		margin-top:400px;
+	}
+	.show{
+		height:400px;
+	}
+	.slideshow ul{
+		margin-top:15px;
+	}
+	.slideDescription{
+		margin-top:0px;
+	}
+}
+@media (min-width: 820px){
+	.show{
+		height:650px;
+	}
+	.slideshow ul{
+		margin-top:10px;
+	}
+}
+
+@media (min-width: 1111px){
+	.show{
+		height:800px;
 	}
 }

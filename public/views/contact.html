@@ -1,37 +1,39 @@
-<div class='projects' ng-init='init()'>
-	<div class='work container'>
-		<div class='symbolDiv' style='background-image:url(/images/phone.png)'>
+<div class='contentWrapper'>
+	<div class='projects' ng-init='init()'>
+		<div class='work container'>
+			<div class='symbolDiv' style='background-image:url(/images/phone.png)'>
+			</div>
+			<h3>Nice to Meet You</h2>
+			<p>If you have any questions, comments, or an interesting project you'd like to discuss, please contact me using one of the following methods:</p>
 		</div>
-		<h3>Nice to Meet You</h2>
-		<p>If you have any questions, comments, or an interesting project you'd like to discuss, please contact me using one of the following methods:
 	</div>
-</div>
-<div class='contactWrapper wrapper'>
-	<div class='contact-container container'>
-		<div class='contactLeft'>
-			<h2>Send me a message:</h2>
-			<br>
-			<form method='post' id='contact-form' ng-submit='sendMail()'>
-				<div>
-					<input type='email' placeholder='Email Address' class='email-address' required ng-model='contactEmail'>
-				</div>
-				<div>
-					<input type='text' class='contactName' placeholder='Name' required ng-model='contactName'>
-				</div>
-				<div>
-					<textarea class='contactMessage' placeholder='Message' required ng-model='contactMessage'></textarea>
-				</div>
-				<button type='submit' class='form-button btn btn-primary'>Send</button>
-			</form>
-		</div>
-		<div class='contactRight'>
-			<h2 class='contactText'>Contact Me here:</h2>
-			<br>
-			<p>Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;412-596-3477</p>
-			<br>
-			<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='emailAddress' href='mailto:john.d.francona@gmail.com'>john.d.francona@gmail.com</a></p>
-			<br>
-			<p class='networkText'>Network:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='https://www.linkedin.com/in/john-d-francona-bb8a9813' target='_blank'><img src='/images/linkedinc.png' class='network'></a></p>
+	<div class='contactWrapper wrapper'>
+		<div class='contact-container container'>
+			<div class='contactLeft'>
+				<h2>Send me a message:</h2>
+				<br>
+				<form method='post' id='contact-form' ng-submit='sendMail()'>
+					<div>
+						<input type='email' placeholder='Email Address' class='email-address' required ng-model='contactEmail'>
+					</div>
+					<div>
+						<input type='text' class='contactName' placeholder='Name' required ng-model='contactName'>
+					</div>
+					<div>
+						<textarea class='contactMessage' placeholder='Message' required ng-model='contactMessage'></textarea>
+					</div>
+					<button type='submit' class='form-button btn btn-primary'>Send</button>
+				</form>
+			</div>
+			<div class='contactRight'>
+				<h2 class='contactText'>Contact Me here:</h2>
+				<br>
+				<p>Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;412-596-3477</p>
+				<br>
+				<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='emailAddress' href='mailto:john.d.francona@gmail.com'>john.d.francona@gmail.com</a></p>
+				<br>
+				<p class='networkText'>Network:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='https://www.linkedin.com/in/john-d-francona-bb8a9813' target='_blank'><img src='/images/linkedinc.png' class='network'></a></p>
+			</div>
 		</div>
 	</div>
 </div>

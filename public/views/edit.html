@@ -5,7 +5,7 @@
 	</div>
 </div>
 <hr>
-<button class='btn btn-danger' ng-click='logOut()' ng-hide='isLoggedOut()'>Log Out</button>
+<button class='btn btn-danger' style='text-align:center' ng-click='logOut()' ng-if='isLoggedIn()'>Log Out</button>
 <br>
 <div class='container' ng-if='isLoggedIn()'>
     <div ng-show="error" class="alert alert-danger row">
@@ -23,7 +23,7 @@
     </form>
 </div>
 
-<div class='container' ng-show='isLoggedOut()'>
+<div class='container' ng-if='isLoggedIn()'>
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>
     </div>
@@ -41,7 +41,7 @@
     </form>
 </div>
 
-<div class='container' ng-show='isLoggedOut()'>
+<div class='container' ng-if='isLoggedIn()'>
     <form ng-submit="register()" style="margin-top:30px;">
         <h3>Register</h3>
 
@@ -52,7 +52,7 @@
     </form>
 </div>
 
-<div class='container' ng-hide='isLoggedOut()'>
+<div class='container editContainer' ng-if='isLoggedIn()'>
 <form ng-submit="addNews()" style="margin-top:30px;">
 	<h3>Add a news Article</h3>
 
@@ -76,38 +76,36 @@
 </div>
 <hr>
 
-<div class='newsWrapper wrapper container' ng-hide='isLoggedOut()'>
+<div class='container editContainer' ng-if='isLoggedIn()'>
     <form style="margin-top:30px;" ng-repeat='news in news | orderBy: "-date" '>
-    <h3>{{news.title}}</h3>
+        <h3>{{news.title}}</h3>
 
-    <div class="form-group">
-        <input type="text" class="form-control" ng-model="news.publication">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" ng-model='news.title'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='news.author'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='news.description'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='news.url'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='news.date'>
-    </div>
-    <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload()'>Edit</button>
-    <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
-</form>
-            </div>
-            <hr>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="news.publication">
         </div>
-    </div>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model='news.title'>
+        </div>
+        <div class='form-group'>
+            <input type = 'text' class='form-control' ng-model='news.author'>
+        </div>
+        <div class='form-group'>
+            <input type = 'text' class='form-control' ng-model='news.description'>
+        </div>
+        <div class='form-group'>
+            <input type = 'text' class='form-control' ng-model='news.url'>
+        </div>
+        <div class='form-group'>
+            <input type = 'text' class='form-control' ng-model='news.date'>
+        </div>
+        <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload()'>Edit</button>
+        <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
+        <hr>
+    </form>
 </div>
-
-<form ng-submit="addProject()" style="margin-top:30px;" ng-hide='isLoggedOut()'>
+        
+<div class='container editContainer' ng-if='isLoggedIn()'>
+<form ng-submit="addProject()" style="margin-top:30px;">
     <h3>Add a Project</h3>
 
     <div class="form-group">
@@ -130,8 +128,9 @@
     </div>
     <button type="submit" class="btn btn-primary" ng-click='reload()'>Post</button>
 </form>
+</div>
 <hr>
-<div class='newsWrapper wrapper container' ng-hide='isLoggedOut()'>
+<div class='container editContainer' ng-if='isLoggedIn()'>
     <form style="margin-top:30px;" ng-repeat='projects in projects'>
     <h3>{{projects.title}}</h3>
 
@@ -139,7 +138,7 @@
         <input type="text" class="form-control" ng-model="projects.title">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" ng-model='projects.description'>
+        <p>Description</p><input type="text" class="form-control" ng-model='projects.description'>
     </div>
     <div class='form-group'>
         <input type = 'text' class='form-control' ng-model='projects.description2'>
