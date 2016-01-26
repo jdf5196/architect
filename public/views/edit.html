@@ -23,7 +23,7 @@
     </form>
 </div>
 
-<div class='container' ng-if='isLoggedIn()'>
+<div class='container' ng-hide='isLoggedIn()'>
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>
     </div>
@@ -41,7 +41,7 @@
     </form>
 </div>
 
-<div class='container' ng-if='isLoggedIn()'>
+<div class='container' ng-hide='isLoggedIn()'>
     <form ng-submit="register()" style="margin-top:30px;">
         <h3>Register</h3>
 
@@ -52,7 +52,7 @@
     </form>
 </div>
 
-<div class='container editContainer' ng-if='isLoggedIn()'>
+<div class='container editContainer' ng-show='isLoggedIn()'>
 <form ng-submit="addNews()" style="margin-top:30px;">
 	<h3>Add a news Article</h3>
 
@@ -104,7 +104,7 @@
     </form>
 </div>
         
-<div class='container editContainer' ng-if='isLoggedIn()'>
+<div class='container' ng-hide='isLoggedOut()'>
 <form ng-submit="addProject()" style="margin-top:30px;">
     <h3>Add a Project</h3>
 
@@ -129,6 +129,7 @@
     <button type="submit" class="btn btn-primary" ng-click='reload()'>Post</button>
 </form>
 </div>
+
 <hr>
 <div class='container editContainer' ng-if='isLoggedIn()'>
     <form style="margin-top:30px;" ng-repeat='projects in projects'>

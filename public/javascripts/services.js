@@ -28,7 +28,6 @@ app.service('projectsList', ['$http', 'auth', function($http, auth){
 	};
 
 	projects.addImage = function(id, image){
-		console.log(image);
 		return $http.post('/projectlist/'+id+'/images', image, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
 		}).success(function(data){

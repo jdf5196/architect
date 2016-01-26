@@ -9,7 +9,6 @@ app.controller('MainCtrl', ['$scope', '$location', 'auth', function($scope, $loc
 					path = $location.path().slice(0, i)
 				}
 			}
-			console.log(path)
 
 			if(path === '/' || path === '#' || path === ''){
 				$scope.backgroundImage = '/images/pittsburgh.jpg';
@@ -80,7 +79,6 @@ app.controller('projectsIDCtrl', ['$scope', '$routeParams', 'projectsList', func
 	for(var i = 0; i<projectsList.projects.length; i++){
 		if($routeParams.projectID == projectsList.projects[i].url){
 			$scope.project = projectsList.projects[i];
-			console.log($scope.project.images[1].url);
 		};
 	};
 
@@ -170,12 +168,21 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	};
 
 	$scope.addProject = function(){
+		var image = $scope.mainImage;
 		var date = new Date();
+		var drop = image.substring(0, 23);
+		var finalImage = '';
+		if(drop === 'https://www.dropbox.com'){
+			var finalImage = 'https://dl.dropboxusercontent.com'+image.substring(23, image.length-5)+'?raw=0';
+		}
+		else{
+			var finalImage = image;
+		};
 		projectsList.create({
 			title: $scope.projectTitle,
 			description: $scope.description1,
 			description2: $scope.description2,
-			mainImage: $scope.mainImage,
+			mainImage: finalImage,
 			type: $scope.type,
 			url: $scope.url,
 			date: date
@@ -200,8 +207,16 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	};
 
 	$scope.imageAdd = function(project){
+		var drop = project.imageUrl.substring(0, 23);
+		var image = '';
+		if(drop === 'https://www.dropbox.com'){
+			var image = 'https://dl.dropboxusercontent.com'+project.imageUrl.substring(23, project.imageUrl.length-5)+'?raw=0';
+		}
+		else{
+			var image = project.imageUrl;
+		};
 		projectsList.addImage(project._id, {
-			url:project.imageUrl,
+			url:image,
 			description: project.imageDescription
 		});
 	};
