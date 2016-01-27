@@ -349,6 +349,7 @@ body{
 	color:white;
 	background-color:rgba(0,0,0,.5);
 	min-height:11vh;
+	border-bottom:solid 1px black;
 }
 
 .IDcontact{
@@ -375,6 +376,28 @@ body{
 	background-color:rgba(0,0,0,.5);
 	color:white;
 	min-height:61vh;
+}
+
+.aboutWrapper{
+	background:black;
+	text-align:left;
+	min-height:61vh;
+	color:white;
+	line-height:61vh;
+}
+
+.aboutWrapper>.container{
+	line-height:61vh;
+}
+
+.aboutDiv{
+	display:inline-block;
+	vertical-align:middle;
+	line-height:30px;
+}
+
+.aboutWrapper>.container>.aboutDiv>p, .aboutWrapper>.container>.aboutDiv>ul>li{
+	font-size:15px;
 }
 
 .contactLeft{

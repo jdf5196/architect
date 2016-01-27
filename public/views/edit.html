@@ -40,7 +40,7 @@
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" ng-model="userLogIn.password"></input>
         </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
+        <button type="submit" class="btn btn-primary" ng-click='reload()'>Log In</button>
     </form>
 </div>
 
@@ -51,7 +51,7 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" ng-model="userRegister.username"></input>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary" ng-click='reload()'>Register</button>
     </form>
 </div>
 
@@ -109,7 +109,7 @@
                 <div class='form-group'>
                     <input type = 'text' class='form-control' ng-model='news.date'>
                 </div>
-                <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload()'>Edit</button>
+                <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload();'>Edit</button>
                 <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
             </form>
             <hr>
