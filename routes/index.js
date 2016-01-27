@@ -204,14 +204,13 @@ router.put('/projectlist/:project/images', Auth, function(req, res, next){
 });
 
 router.post('/contact', function(req, res, next){
-	var registerId = uuid.v4();
 
 	transporter.sendMail({
 		from: req.body.contactEmail,
 		to: 'jfrancona87@gmail.com',
 		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
-		text: registerId,
-		html: registerId
+		text: req.body.contactMessage,
+		html: req.body.contactMessage
 	}, function(err){
 		if(err){console.log(err);}
 	});
