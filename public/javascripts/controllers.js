@@ -195,11 +195,21 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	};
 
 	$scope.updateProject = function(project){
+		var image = project.mainImage;
+		var date = new Date();
+		var drop = image.substring(0, 23);
+		var finalImage = '';
+		if(drop === 'https://www.dropbox.com'){
+			var finalImage = 'https://dl.dropboxusercontent.com'+image.substring(23, image.length-5)+'?raw=0';
+		}
+		else{
+			var finalImage = image;
+		};
 		projectsList.update({
 			title: project.title,
 			description: project.description,
 			description2: project.description2,
-			mainImage: project.mainImage,
+			mainImage: finalImage,
 			type: project.type,
 			url: project.url,
 			date: project.date

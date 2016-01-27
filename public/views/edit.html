@@ -7,7 +7,7 @@
 <hr>
 <button class='btn btn-danger' style='text-align:center' ng-click='logOut()' ng-if='isLoggedIn()'>Log Out</button>
 <br>
-<div class='container' ng-if='isLoggedIn()'>
+<div class='container' ng-show='isLoggedIn()'>
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>
     </div>

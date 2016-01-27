@@ -149,10 +149,14 @@ body{
 	color: white;
 }
 
+.work>p{
+	font-size:15px;
+}
+
 .workSymbol{
-	height: 100px;
+	height: 120px;
 	border-radius: 50%;
-	margin-top: 60px;
+	margin-top: 75px;
 	background-color:white;
 }
 
@@ -174,17 +178,16 @@ body{
 }
 
 .symbolDiv{
-	height:100px;
-	width:100px;
+	height:120px;
+	width:120px;
 	border-radius:50%;
-	margin-top:100px;
 	background-color:white;
-	background-size:70px;
+	background-size:84px;
 	background-repeat:no-repeat;
 	background-position:center;
 	margin-right:auto;
 	margin-left:auto;
-	margin-top:60px;
+	margin-top:75px;
 }
 
 .projects{
@@ -274,17 +277,18 @@ body{
 
 .description-container-1{
 	width:100%;
-	height:400px;
+	height:450px;
 	background:white;
 }
 
 .description1{
+	text-align:center;
 	width: 50%;
 	float:left;
 	padding-left:40px;
 	padding-right:40px;
 	height:100%;
-	line-height:400px;
+	line-height:450px;
 	background-color:white;
 	border:solid 1px black;
 }
@@ -308,12 +312,13 @@ body{
 }
 
 .description2{
+	text-align:center;
 	width: 50%;
 	float:right;
 	padding-left:40px;
 	padding-right:40px;
 	height:100%;
-	line-height:400px;
+	line-height:450px;
 	background-color:white;
 	border:solid 1px black;
 }
@@ -466,7 +471,7 @@ a>h4{
 }
 
 .idPicDiv{
-	height:600px;
+	height:85vh;
 	width:100%;
 	background-size:cover;
 	background-position:center;
@@ -499,7 +504,8 @@ a>h4{
 }
 
 .slideDescription{
-	margin-top:15px;
+	margin-top:10px;
+	font-size:15px;
 }
 
 .prev {
@@ -639,6 +645,14 @@ a>h4{
 	color:white;
 }
 
+.slide{
+	max-height:85vh;
+}
+
+.show{
+	max-height:90vh;
+}
+
 @media (min-width: 767px){
 	.navbar-nav{
 		float: right;
@@ -668,7 +682,7 @@ a>h4{
 	}
 
 	.home{
-		margin-top:200px;
+		margin-top:237px;
 	}
 
 	.button > a{
@@ -692,6 +706,10 @@ a>h4{
 		margin-top:25px;
 		margin-bottom:-30px;
 	}
+	.slideDescription{
+	margin-top:10px;
+	font-size:12px;
+}
 
 }
 
