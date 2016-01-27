@@ -169,7 +169,7 @@ body{
 .developer, .developer>a{
 	font-size:10px;
 	text-align:left;
-	color:rgba(128, 128, 128, 0.4);
+	color:rgba(128, 128, 128, 0.55);
 	margin-top:-15px;
 }
 
@@ -643,6 +643,15 @@ a>h4{
 
 .editContainer{
 	color:white;
+}
+
+.editHeadline{
+	color:white;
+}
+
+.newsEdit{
+	border:solid;
+	border-size:1px;
 }
 
 .slide{

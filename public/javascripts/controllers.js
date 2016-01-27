@@ -156,6 +156,24 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 		newslist.delete(news);
 	};
 
+	$scope.showDetail = function(news){
+		if($scope.active != news._id){
+			$scope.active = news._id;
+		}
+		else{
+			$scope.active = null;
+		}
+	};
+
+	$scope.showProject = function(project){
+		if($scope.active != project._id){
+			$scope.active = project._id;
+		}
+		else{
+			$scope.active = null;
+		}
+	};
+
 	$scope.updateNews = function(news){
 		newslist.update({
 			publication: news.publication,

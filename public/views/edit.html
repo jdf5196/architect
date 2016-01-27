@@ -5,14 +5,17 @@
 	</div>
 </div>
 <hr>
-<button class='btn btn-danger' style='text-align:center' ng-click='logOut()' ng-if='isLoggedIn()'>Log Out</button>
+
+<div class='container'>
+    <button class='btn btn-danger' style='text-align:center' ng-click='logOut()' ng-if='isLoggedIn()'>Log Out</button>
+</div>
 <br>
 <div class='container' ng-show='isLoggedIn()'>
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>
     </div>
     <form ng-submit="change()" style="margin-top:30px;">
-        <h3>Change Password</h3>
+        <h3 class='editHeadline'>Change Password</h3>
 
         <div class="form-group">
             <input type='password' class='form-control' placeholder='Current Password' ng-model='change.currentPassword' required></input>
@@ -29,7 +32,7 @@
     </div>
 
     <form ng-submit="logIn()" style="margin-top:30px;">
-        <h3>Log In</h3>
+        <h3 class='editHeadline'>Log In</h3>
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" ng-model="userLogIn.username"></input>
@@ -43,7 +46,7 @@
 
 <div class='container' ng-hide='isLoggedIn()'>
     <form ng-submit="register()" style="margin-top:30px;">
-        <h3>Register</h3>
+        <h3 class='editHeadline'>Register</h3>
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" ng-model="userRegister.username"></input>
@@ -52,61 +55,72 @@
     </form>
 </div>
 
+<hr ng-show='isLoggedIn()'>
+
 <div class='container editContainer' ng-show='isLoggedIn()'>
 <form ng-submit="addNews()" style="margin-top:30px;">
-	<h3>Add a news Article</h3>
+	<h3 class='editHeadline'>Add a news Article</h3>
 
 	<div class="form-group">
-		<input type="text" class="form-control" placeholder="Publication" ng-model="publication"></input>
+		<input type="text" class="form-control" placeholder="Publication" ng-model="publication" required></input>
     </div>
     <div class="form-group">
-    	<input type="text" class="form-control" placeholder="Title" ng-model="title"></input>
+    	<input type="text" class="form-control" placeholder="Title" ng-model="title" required></input>
     </div>
     <div class='form-group'>
-    	<input type = 'text' class='form-control' placeholder='Author' ng-model='author'>
+    	<input type = 'text' class='form-control' placeholder='Author' ng-model='author'required>
     </div>
     <div class='form-group'>
-    	<input type = 'text' class='form-control' placeholder='Description' ng-model='description'>
+    	<input type = 'text' class='form-control' placeholder='Description' ng-model='description' required>
     </div>
     <div class='form-group'>
-    	<input type = 'text' class='form-control' placeholder='Link' ng-model='link'>
+    	<input type = 'text' class='form-control' placeholder='Link' ng-model='link' required>
     </div>
     <button type="submit" class="btn btn-primary" ng-click='reload()'>Post</button>
 </form>
 </div>
-<hr>
 
-<div class='container editContainer' ng-if='isLoggedIn()'>
-    <form style="margin-top:30px;" ng-repeat='news in news | orderBy: "-date" '>
-        <h3>{{news.title}}</h3>
 
-        <div class="form-group">
-            <input type="text" class="form-control" ng-model="news.publication">
+<div class="container" style='color:white; font-size:16px' ng-show='isLoggedIn()'>
+    <h3 class='editHeadline'>Edit a News Article</h3>
+    <div class="row newsEdit" ng-repeat-start="news in news" ng-click="showDetail(news)" ng-class-odd="'alt'"> 
+        <div class='col-xs-10 text-left'>{{news.title}}</div>
+        <div class='col-xs-1 text-right'><a href=""><i ng-hide="active==news._id" class="fa fa-plus fa-3x"></i><i ng-show="active==news._id" class="fa fa-minus fa-3x"></i></a></div>
+    </div>
+    <div class="row" ng-repeat-end="" ng-show="active==news._id" ng-class-odd="'alt'">
+        <div =class='container'>
+
+            <form style="margin-top:30px;">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="news.publication">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model='news.title'>
+                </div>
+                <div class='form-group'>
+                    <input type = 'text' class='form-control' ng-model='news.author'>
+                </div>
+                <div class='form-group'>
+                    <input type = 'text' class='form-control' ng-model='news.description'>
+                </div>
+                <div class='form-group'>
+                    <input type = 'text' class='form-control' ng-model='news.url'>
+                </div>
+                <div class='form-group'>
+                    <input type = 'text' class='form-control' ng-model='news.date'>
+                </div>
+                <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload()'>Edit</button>
+                <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
+            </form>
+            <hr>
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" ng-model='news.title'>
-        </div>
-        <div class='form-group'>
-            <input type = 'text' class='form-control' ng-model='news.author'>
-        </div>
-        <div class='form-group'>
-            <input type = 'text' class='form-control' ng-model='news.description'>
-        </div>
-        <div class='form-group'>
-            <input type = 'text' class='form-control' ng-model='news.url'>
-        </div>
-        <div class='form-group'>
-            <input type = 'text' class='form-control' ng-model='news.date'>
-        </div>
-        <button class='btn btn-success btn-xs' ng-click='updateNews(news); reload()'>Edit</button>
-        <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
-        <hr>
-    </form>
+    </div>
 </div>
+<hr ng-show='isLoggedIn()'>
         
 <div class='container' ng-hide='isLoggedOut()'>
 <form ng-submit="addProject()" style="margin-top:30px;">
-    <h3>Add a Project</h3>
+    <h3 class='editHeadline'>Add a Project</h3>
 
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Title" ng-model="projectTitle"></input>
@@ -130,41 +144,52 @@
 </form>
 </div>
 
-<hr>
-<div class='container editContainer' ng-if='isLoggedIn()'>
-    <form style="margin-top:30px;" ng-repeat='projects in projects'>
-    <h3>{{projects.title}}</h3>
 
-    <div class="form-group">
-        <input type="text" class="form-control" ng-model="projects.title">
+<div class="container" style='color:white; font-size:16px' ng-show='isLoggedIn()'>
+    <h3 class='editHeadline'>Edit a Project</h3>
+    <div class="row newsEdit" ng-repeat-start="projects in projects" ng-click="showProject(projects)" ng-class-odd="'alt'"> 
+        <div class='col-xs-10 text-left'>{{projects.title}}</div>
+        <div class='col-xs-1 text-right'><a href=""><i ng-hide="active==projects._id" class="fa fa-plus fa-3x"></i><i ng-show="active==projects._id" class="fa fa-minus fa-3x"></i></a></div>
     </div>
-    <div class="form-group">
-        <p>Description</p><input type="text" class="form-control" ng-model='projects.description'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='projects.description2'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='projects.mainImage'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='projects.type'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='projects.url'>
-    </div>
-    <div class='form-group'>
-        <input type = 'text' class='form-control' ng-model='projects.date'>
-    </div>
-    <div class='form-group'>
-            <input type='text' class='form-control' placeholder='Image Url' ng-model='projects.imageUrl'>
-            <input type='text' class='form-control' placeholder='Image Description' ng-model='projects.imageDescription'>
+    <div class="row" ng-repeat-end="" ng-show="active==projects._id" ng-class-odd="'alt'">
+        <div =class='container'>
+            <form style="margin-top:30px;">
+                <h3>{{projects.title}}</h3>
+
+                <div class="form-group">
+                    <input placeholder='Title' type="text" class="form-control" ng-model="projects.title">
+                </div>
+                <div class="form-group">
+                    <input placeholder='Description 1' type="text" class="form-control" ng-model='projects.description'>
+                </div>
+                <div class='form-group'>
+                    <input placeholder='Description 2' type = 'text' class='form-control' ng-model='projects.description2'>
+                </div>
+                <div class='form-group'>
+                    <input placeholder='Main Image Url' type = 'text' class='form-control' ng-model='projects.mainImage'>
+                </div>
+                <div class='form-group'>
+                    <input placeholder='Type' type = 'text' class='form-control' ng-model='projects.type'>
+                </div>
+                <div class='form-group'>
+                    <input placeholder='Url' type = 'text' class='form-control' ng-model='projects.url'>
+                </div>
+                <div class='form-group'>
+                    <input placeholder='Date' type = 'text' class='form-control' ng-model='projects.date'>
+                </div>
+                <div class='form-group'>
+                        <input type='text' class='form-control' placeholder='Image Url' ng-model='projects.imageUrl'>
+                        <input type='text' class='form-control' placeholder='Image Description' ng-model='projects.imageDescription'>
+                </div>
+                <button class='btn btn-success btn-xs' ng-click='imageAdd(projects); reload()'>Add Image</button>
+                <button class='btn btn-success btn-xs' ng-click='updateProject(projects); reload()'>Edit</button>
+                <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects); reload()">Delete</button>
+                <hr>
+                <div ng-repeat='image in projects.images'>
+                    <p>{{image.url}}</p><button class='btn btn-danger btn-xs' ng-click="deleteImage(image, projects); reload()">Delete Image</button>
+                </div>
+            </form>
+            <hr>
         </div>
-        <button class='btn btn-success btn-xs' ng-click='imageAdd(projects); reload()'>Add Image</button>
-    <button class='btn btn-success btn-xs' ng-click='updateProject(projects); reload()'>Edit</button>
-    <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects); reload()">Delete</button>
-    <hr>
-        <div ng-repeat='image in projects.images'>
-            <p>{{image.url}}</p><button class='btn btn-danger btn-xs' ng-click="deleteImage(image, projects); reload()">Delete Image</button>
-        </div>
-</form>
+    </div>
+</div>
