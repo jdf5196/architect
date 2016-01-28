@@ -741,7 +741,19 @@ a>h4{
 	.slideDescription{
 	margin-top:10px;
 	font-size:12px;
-}
+	}
+
+	.background{
+	position: none;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center top;
+	z-index: -2;
+	background-attachment: scroll;
+	}
 
 }
 
