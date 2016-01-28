@@ -110,7 +110,7 @@
                     <input type = 'text' class='form-control' ng-model='news.date'>
                 </div>
                 <button class='btn btn-success btn-xs' ng-click='updateNews(news);'>Edit</button>
-                <button class='btn btn-danger btn-xs' ng-click="deleteNews(news); reload()">Delete</button>
+                <button class='btn btn-danger btn-xs' ng-click="deleteNews(news)">Delete</button>
             </form>
             <hr>
         </div>
@@ -140,7 +140,7 @@
     <div class='form-group'>
         <input type = 'text' class='form-control' placeholder='Url' ng-model='url'>
     </div>
-    <button type="submit" class="btn btn-primary" ng-click'reload()'>Post</button>
+    <button type="submit" class="btn btn-primary" ng-click='reload()'>Post</button>
 </form>
 </div>
 
@@ -183,7 +183,7 @@
                 </div>
                 <button class='btn btn-success btn-xs' ng-click='imageAdd(projects)'>Add Image</button>
                 <button class='btn btn-success btn-xs' ng-click='updateProject(projects)'>Edit</button>
-                <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects); reload()">Delete</button>
+                <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects)">Delete</button>
                 <hr>
                 <div ng-repeat='image in projects.images'>
                     <p>{{image.description}} - {{image.url}}</p><button class='btn btn-danger btn-xs' ng-click="deleteImage(image, projects)">Delete Image</button>

@@ -7,12 +7,10 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href="/stylesheets/style.css" rel="stylesheet">
-	<script src="http://code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
     <script src="http://code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/controllers.js"></script>
@@ -37,12 +35,12 @@
 					<div class='container-fluid'>
 						<div class='collapse navbar-collapse' id='collapse'>
 							<ul class = 'nav navbar-nav'>
-								<li ng-click='background("home")' ng-class='{active: isActive("/")}' class='list'><a href='#'>Home</a></li>
-								<li ng-click='background("projects")' ng-class='{active: isActive("/projects")}' class='list'><a href='/#/projects'>Projects</a></li>
-								<li ng-click='background("news")' ng-class='{active: isActive("/news")}' class='list'><a href='/#/news'>News</a></li>
-								<li ng-click='background("about")' ng-class='{active: isActive("/about")}' class='list'><a href='/#/about'>About</a></li>
-								<li ng-click='background("contact")' ng-class='{active: isActive("/contact")}' class='list'><a href='/#/contact'>Contact</a></li>
-								<li ng-if='isLoggedIn()' ng-click='background("edit")' ng-class='{active: isActive("/edit")}' class='list'><a href='/#/edit'>Edit</a></li>
+								<li ng-click='background("home")' ng-class='{active: isActive("/")}' class='list'><a data-toggle="collapse" data-target=".in" href='#/'>Home</a></li>
+								<li ng-click='background("projects")' ng-class='{active: isActive("/projects")}' class='list'><a data-toggle="collapse" data-target=".in" href='/#/projects'>Projects</a></li>
+								<li ng-click='background("news")' ng-class='{active: isActive("/news")}' class='list'><a data-toggle="collapse" data-target=".in" href='/#/news'>News</a></li>
+								<li ng-click='background("about")' ng-class='{active: isActive("/about")}' class='list'><a data-toggle="collapse" data-target=".in" href='/#/about'>About</a></li>
+								<li ng-click='background("contact")' ng-class='{active: isActive("/contact")}' class='list'><a data-toggle="collapse" data-target=".in" href='/#/contact'>Contact</a></li>
+								<li ng-if='isLoggedIn()' ng-click='background("edit")' ng-class='{active: isActive("/edit")}' class='list'><a data-toggle="collapse" data-target=".in" href='/#/edit'>Edit</a></li>
 							</ul>
 						</div>
 					</div>
@@ -52,7 +50,7 @@
 	<div>
 		<div class='background' style="background-image:url({{backgroundImage}});">
 		</div>
-		<ng-view></ng-view>
+		<ng-view autoscroll="true"></ng-view>
 	</div>
 </body>
 </html>

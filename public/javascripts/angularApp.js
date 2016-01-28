@@ -1,1 +1,1 @@
-var app = angular.module('jdfApp', ['ngRoute', 'ngResource']);
+var app = angular.module('jdfApp', ['ngRoute']);

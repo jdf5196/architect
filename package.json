@@ -20,5 +20,27 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "engines": {
+    "node": "4.1.1"
+  },
+  "description": "JDF Website",
+  "main": "app.js",
+  "bin": {
+    "architect": "config.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdf5196/architect.git"
+  },
+  "keywords": [
+    "JDF"
+  ],
+  "author": "Joshua Francona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdf5196/architect/issues"
+  },
+  "homepage": "https://github.com/jdf5196/architect#readme"
 }
