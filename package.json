@@ -22,7 +22,8 @@
     "serve-favicon": "~2.3.0"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": "4.2.1",
+    "npm": "3.5.3"
   },
   "description": "JDF Website",
   "main": "app.js",
