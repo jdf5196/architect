@@ -141,8 +141,8 @@ body{
 }
 
 .work{
-	min-height: 36vh;
-	margin-top: 50px;
+	min-height: 41.5vh;
+	padding-top:5.5vh;
 	text-align:center;
 	width: 100%;
 	background-color:rgba(0,0,0,.5);
@@ -749,7 +749,7 @@ a>h4{
 
 	.background{
 	position: none;
-	min-height:1000px;
+	min-height:900px;
 	top:0;
 	left:0;
 	right:0;
@@ -758,6 +758,11 @@ a>h4{
 	background-position: center top;
 	z-index: -2;
 	background-attachment: scroll;
+	}
+
+	.contactContainer{
+		background:black;
+		border-top:solid 1px grey;
 	}
 
 }
