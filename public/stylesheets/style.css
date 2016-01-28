@@ -732,7 +732,10 @@ a>h4{
 		margin-right:50px;
 		float:left;
 		text-align: center;
-		font-size:14px;
+	}
+
+	.contactRight>p{
+		font-size:17px;
 	}
 
 	.box{
