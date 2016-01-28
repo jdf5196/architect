@@ -14,8 +14,8 @@ app.service('projectsList', ['$http', 'auth', function($http, auth){
 	projects.create = function(project){
 		return $http.post('/projectlist', project, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
-		}).success(function(data){
-			projects.projects.push(data);
+		}).success(function(){
+			projects.projects.push(project);
 		});
 	};
 
@@ -28,9 +28,10 @@ app.service('projectsList', ['$http', 'auth', function($http, auth){
 	};
 
 	projects.addImage = function(id, image){
-		return $http.post('/projectlist/'+id+'/images', image, {
+		return $http.post('/projectlist/'+id._id+'/images', image, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
 		}).success(function(data){
+			projects.projects[projects.projects.indexOf(id)].images.push(image);
 		});
 	};
 
@@ -42,9 +43,10 @@ app.service('projectsList', ['$http', 'auth', function($http, auth){
 	};
 
 	projects.deleteImage = function(image, id){
-		return $http.put('/projectlist/'+id+'/images', image, {
+		return $http.put('/projectlist/'+id._id+'/images', image, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
 		}).success(function(data){
+			projects.projects[projects.projects.indexOf(id)].images.splice(projects.projects[projects.projects.indexOf(id)].images.indexOf(image), 1);
 		});
 	};
 	return projects;

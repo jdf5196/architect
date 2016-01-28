@@ -243,14 +243,17 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 		else{
 			var image = project.imageUrl;
 		};
-		projectsList.addImage(project._id, {
+		projectsList.addImage(project, {
 			url:image,
 			description: project.imageDescription
+		}).success(function(){
+			project.imageUrl = '';
+			project.imageDescription = '';
 		});
 	};
 
 	$scope.deleteImage = function(image, project){
-		projectsList.deleteImage(image, project._id);
+		projectsList.deleteImage(image, project);
 	};
 
 	$scope.register = function(){

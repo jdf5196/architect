@@ -101,7 +101,6 @@ router.put('/projectlist/:project', Auth, function(req, res, next){
 });
 
 router.post('/projectlist/:project/images', Auth, function(req, res, next){
-	console.log(req.body);
 
 	var project = req.project;
 
@@ -186,15 +185,15 @@ router.delete('/projectlist/:project', Auth, function(req, res, next){
 });
 
 router.put('/projectlist/:project/images', Auth, function(req, res, next){
+
 	var image;
 	var project = req.project;
 
 	for(var i = 0; i<req.project.images.length; i++){
-		if(project.images[i]._id == req.body._id){
+		if(project.images[i].url == req.body.url && project.images[i].description === req.body.description){
 			image = project.images[i];
 		};
 	};
-
 	project.images.splice(project.images.indexOf(image), 1);
 
 	project.save(function(err, project){
