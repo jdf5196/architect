@@ -753,7 +753,7 @@ a>h4{
 	top:0;
 	left:0;
 	right:0;
-	bottom:0;
+	bottom:11vh;
 	background-size: cover;
 	background-position: center top;
 	z-index: -2;
@@ -763,6 +763,9 @@ a>h4{
 	.contactContainer{
 		background:black;
 		border-top:solid 1px grey;
+	}
+	..navbar-inverse{
+		margin-top:-5px;
 	}
 
 }
