@@ -243,6 +243,10 @@ body{
 	width:100%;
 }
 
+.information{
+	padding-bottom:30px;
+}
+
 .wrapper{
 	width:100%;
 	text-align:center;
@@ -254,6 +258,7 @@ body{
 	padding-bottom:20px;
 	padding-right:40px;
 	padding-left:40px;
+	min-height:500px;
 }
 
 .projectsList{
@@ -576,7 +581,7 @@ a>h4{
 }
 
 .slide {
-    height:90%;
+	height:90%;
     top: 0;
 }
 
@@ -731,14 +736,6 @@ a>h4{
 	border-size:1px;
 }
 
-.slide{
-	max-height:85vh;
-}
-
-.show{
-	max-height:90vh;
-}
-
 @media (min-width: 767px){
 	.navbar-nav{
 		float: right;
@@ -850,7 +847,12 @@ a>h4{
 	text-align:left;
 	max-width:750px;
 	padding-right:10px;
-}
+	}
+
+	.slide{
+		width:100%;
+		height:auto;
+	}
 
 
 }
@@ -1002,6 +1004,10 @@ a>h4{
 @media (max-width: 350px){
 	.navbar-inverse{
 		height:50px;
+	}
+
+	.navbar-collapse{
+		background:black;
 	}
 
 	.title{

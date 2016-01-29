@@ -177,13 +177,15 @@
                 <div class='form-group'>
                     <input placeholder='Date' type = 'text' class='form-control' ng-model='projects.date'>
                 </div>
+                <button class='btn btn-success btn-xs' ng-click='updateProject(projects)'>Edit</button>
+                <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects)">Delete</button>
+                <br>
+                <br>
                 <div class='form-group'>
                         <input type='text' class='form-control' placeholder='Image Url' ng-model='projects.imageUrl'>
                         <input type='text' class='form-control' placeholder='Image Description' ng-model='projects.imageDescription'>
                 </div>
                 <button class='btn btn-success btn-xs' ng-click='imageAdd(projects)'>Add Image</button>
-                <button class='btn btn-success btn-xs' ng-click='updateProject(projects)'>Edit</button>
-                <button class='btn btn-danger btn-xs' ng-click="deleteProject(projects)">Delete</button>
                 <hr>
                 <div ng-repeat='image in projects.images'>
                     <p>{{image.description}} - {{image.url}}</p><button class='btn btn-danger btn-xs' ng-click="deleteImage(image, projects)">Delete Image</button>
