@@ -89,20 +89,9 @@ body{
 	height: 100%;
 }
 
-.background{
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background-size: cover;
-	background-position: center center;
-	z-index: -2;
-	background-attachment: fixed;
-}
-
 .homeBackground{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/pittsburgh.jpg');
+	min-height:1080px;
 	position: fixed;
 	top:0;
 	left:0;
@@ -116,6 +105,7 @@ body{
 
 .projectBackground{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/desk.jpeg');
+	min-height:1080px;
 	position: fixed;
 	top:0;
 	left:0;
@@ -129,6 +119,7 @@ body{
 
 .newsBackground{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/news.jpeg');
+	min-height:1080px;
 	position: fixed;
 	top:0;
 	left:0;
@@ -142,6 +133,7 @@ body{
 
 .aboutBackground{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/park.jpg');
+	min-height:1080px;
 	position: fixed;
 	top:0;
 	left:0;
@@ -156,6 +148,7 @@ body{
 .contactBackground{
 	position: fixed;
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/write.jpeg');
+	min-height:1080px;
 	top:0;
 	left:0;
 	right:0;
