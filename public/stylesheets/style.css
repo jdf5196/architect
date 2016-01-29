@@ -98,9 +98,9 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	z-index: -2;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .projectBackground{
@@ -112,9 +112,9 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	z-index: -2;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .newsBackground{
@@ -126,9 +126,9 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	z-index: -2;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .aboutBackground{
@@ -140,9 +140,9 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	z-index: -2;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .contactBackground{
@@ -154,9 +154,9 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	z-index: -2;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .home{
