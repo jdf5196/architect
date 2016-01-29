@@ -420,7 +420,6 @@ body{
 	text-align:center;
 	color:white;
 	min-height:11vh;
-	border-bottom:solid 1px black;
 }
 
 .IDcontact{
@@ -857,16 +856,11 @@ a>h4{
 	}
 
 	.homeBackground{
-		min-height:900px;
+		min-height:1080px;
 		background-size: cover;
 		background-position: center top;
 		z-index: -2;
 		background-attachment: scroll;
-	}
-
-	.contactContainer{
-		background:black;
-		border-top:solid 1px grey;
 	}
 	.navbar-inverse{
 		margin-top:-5px;
@@ -967,6 +961,35 @@ a>h4{
 	.slideDescription{
 		margin-top:0px;
 	}
+	.homeNav{
+		background-color:black;
+		border-color:black;
+		min-height:5.5vh;
+	}
+	.homeNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>.active>a, .pageNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>.active>a:hover{
+		color: #B90000;
+		background-color:rgba(0, 0, 0, 0);
+	}
+
+	.homeNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>li>a{
+		color:#175C81;
+	}
+
+	.homeNav>.container>.container-fluid>.navbar-collapse>.navbar-nav>li>a:hover{
+		color:#B758B7;
+	}
+
+	.homeNav>.container>.navbar-header>.navbar-brand>.name{
+		color:#175C81;
+	}
+
+	.homeNav>.container>.navbar-header>.navbar-brand>.title{
+		color:#175C81;
+	}
+
+	.home{
+		margin-top:100px;
+	}
 }
 @media (min-width: 820px){
 	.show{
@@ -980,5 +1003,49 @@ a>h4{
 @media (min-width: 1111px){
 	.show{
 		height:800px;
+	}
+}
+
+@media(min-height:550px){
+	.developer{
+		margin-top:45px;
+	}
+}
+
+@media (max-width: 350px){
+	.navbar-inverse{
+		height:50px;
+	}
+
+	.title{
+		margin-top:-15px;
+	}
+
+	.name{
+		margin-top:-3px;
+	}
+
+	.navbar-brand{
+		font-size:10px;
+	}
+	.home>h1{
+		font-size:40px;
+	}
+
+	.home>p{
+		font-size:14px;
+	}
+
+	.btn{
+		font-size:10px;
+	}
+	.developer{
+		margin-top:-23px;
+	}
+}
+
+@media(max-width:350px) and (max-height:500px){
+	.home{
+		margin-top:100px;
 	}
 }
