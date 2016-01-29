@@ -1,4 +1,4 @@
-<div class='projectHeader'>
+<div class='projectHeader' ng-init='init()'>
 	<div class='idPage container'>
 		<a href='/#/projects'><div class='box'>
 			<div class='topleft square'></div>
@@ -9,19 +9,19 @@
 		<h3>{{project.title}}</h3>
 	</div>
 </div>
-<div class='idPicDiv' style='background-image:url({{project.mainImage}})'>
+<div class='idPicDiv'style='background-image:url({{project.mainImage}})'>
 </div>
 <div class='description-container-1'>
 	<div class='description1'>
 		<span>{{project.description}}</span>
 	</div>
-	<div class='picture1' style='background-image:url({{project.images[0].url}}'></div>
+	<div class='picture1' style='background-image:url({{project.images[0].url}})'></div>
 </div>
 <div class='description-container-1'>
 	<div class='description2'>
 		<span>{{project.description2}}</span>
 	</div>
-	<div class='picture2' style='background-image:url({{project.images[1].url}}'></div>
+	<div class='picture2' style='background-image:url({{project.images[1].url}})'></div>
 </div>
 
 

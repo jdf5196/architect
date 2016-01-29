@@ -11,57 +11,12 @@ app.controller('MainCtrl', ['$scope', '$location', 'auth', function($scope, $loc
 			}
 
 			if(path === '/' || path === '#' || path === ''){
-				$scope.backgroundImage = '/images/pittsburgh.jpg';
 				$scope.class = 'homeNav';
 			}
-			else if(path === '/projects' || path === '/projects/1'){
-				$scope.backgroundImage = '/images/desk.jpeg';
-				$scope.class = 'pageNav';
-			}
-			else if(path === '/news'){
-				$scope.backgroundImage = '/images/news.jpeg';
-				$scope.class = 'pageNav';
-			}
-			else if(path === '/about'){
-				$scope.backgroundImage = '/images/park.jpg';
-				$scope.class = 'pageNav';
-			}
-			else if(path === '/contact'){
-				$scope.backgroundImage = '/images/write.jpeg';
-				$scope.class = 'pageNav';
-			}
-			else if(path === '/edit'){
-				$scope.backgroundImage = '';
-				$scope.class = 'pageNav';
+			else{
+				$scope.class = 'pageNav'
 			}
 		}
-
-		$scope.background = function(location){
-			if(location === 'home'){
-				$scope.backgroundImage = '/images/pittsburgh.jpg';
-				$scope.class = 'homeNav';
-			}
-			if(location === 'projects'){
-				$scope.backgroundImage = '/images/desk.jpeg';
-				$scope.class = 'pageNav';
-			}
-			if(location === 'news'){
-				$scope.backgroundImage = '/images/news.jpeg';
-				$scope.class = 'pageNav';
-			}
-			if(location === 'about'){
-				$scope.backgroundImage = '/images/park.jpg';
-				$scope.class = 'pageNav';
-			}
-			if(location === 'contact'){
-				$scope.backgroundImage = '/images/write.jpeg';
-				$scope.class = 'pageNav';
-			}
-			if(location === 'edit'){
-				$scope.backgroundImage = '';
-				$scope.class = 'pageNav';
-			};
-		};
 
 }]);
 

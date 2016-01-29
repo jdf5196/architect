@@ -87,11 +87,75 @@ body{
 	left:0;
 	width: 100%;
 	height: 100%;
-	background:rgba(0, 0, 0, 0.4);
 }
 
 .background{
 	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -2;
+	background-attachment: fixed;
+}
+
+.homeBackground{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/pittsburgh.jpg');
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -2;
+	background-attachment: fixed;
+}
+
+.projectBackground{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/desk.jpeg');
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -2;
+	background-attachment: fixed;
+}
+
+.newsBackground{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/news.jpeg');
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -2;
+	background-attachment: fixed;
+}
+
+.aboutBackground{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/park.jpg');
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-size: cover;
+	background-position: center center;
+	z-index: -2;
+	background-attachment: fixed;
+}
+
+.contactBackground{
+	position: fixed;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/write.jpeg');
 	top:0;
 	left:0;
 	right:0;
@@ -145,7 +209,6 @@ body{
 	padding-top:5.5vh;
 	text-align:center;
 	width: 100%;
-	background-color:rgba(0,0,0,.5);
 	color: white;
 }
 
@@ -218,6 +281,16 @@ body{
 	display:inline-block;
 }
 
+.titleLink{
+	color:white;
+	font-size:18px;
+	text-decoration: underline;
+}
+
+.titleLink:hover{
+	color:#B758B7;
+}
+
 .project{
 	width:300px;
 	height:225px;
@@ -278,7 +351,6 @@ body{
 .description-container-1{
 	width:100%;
 	height:450px;
-	background:white;
 }
 
 .description1{
@@ -347,7 +419,6 @@ body{
 .contactContainer{
 	text-align:center;
 	color:white;
-	background-color:rgba(0,0,0,.5);
 	min-height:11vh;
 	border-bottom:solid 1px black;
 }
@@ -373,9 +444,15 @@ body{
 	width:100%;
 	text-align:center;
 	padding-top:60px;
-	background-color:rgba(0,0,0,.5);
 	color:white;
 	min-height:61vh;
+	margin-right:auto;
+	margin-left:auto;
+	margin-bottom:0;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-right:40px;
+	padding-left:40px;
 }
 
 .aboutWrapper{
@@ -747,17 +824,44 @@ a>h4{
 	font-size:12px;
 	}
 
-	.background{
-	position: none;
-	min-height:900px;
-	top:0;
-	left:0;
-	right:0;
-	bottom:11vh;
-	background-size: cover;
-	background-position: center top;
-	z-index: -2;
-	background-attachment: scroll;
+	.contactBackground{
+		min-height:900px;
+		background-size: cover;
+		background-position: center top;
+		z-index: -2;
+		background-attachment: scroll;
+	}
+
+	.aboutBackground{
+		min-height:900px;
+		background-size: cover;
+		background-position: center top;
+		z-index: -2;
+		background-attachment: scroll;
+	}
+
+	.projectBackground{
+		min-height:900px;
+		background-size: cover;
+		background-position: center top;
+		z-index: -2;
+		background-attachment: scroll;
+	}
+
+	.newsBackground{
+		min-height:900px;
+		background-size: cover;
+		background-position: center top;
+		z-index: -2;
+		background-attachment: scroll;
+	}
+
+	.homeBackground{
+		min-height:900px;
+		background-size: cover;
+		background-position: center top;
+		z-index: -2;
+		background-attachment: scroll;
 	}
 
 	.contactContainer{
@@ -780,17 +884,28 @@ a>h4{
 		margin-top:-70px;
 	}
 
+	.projectsList{
+		max-width:600px;
+	}
+
 	.project{
-		width:80%;
-		min-width:400px;
-		height:300px;
+		width:350px;
 		margin-bottom:20px;
 		margin-left:0px;
 		margin-right:0px;
 	}
+
+	.picture1{
+		z-index:9999;
+	}
+	.overlay{
+		width:350px;
+		height:225px;
+	}
 	.projectDiv{
 		height:100%;
 	}
+
 	a>h4{
 		margin-top:70px;
 		text-decoration: underline;
@@ -809,14 +924,13 @@ a>h4{
 	}
 
 	.projectBtn{
-		height:300px;
+		height:225px;
 		width:100%;
 		margin-top:-90px;
 		display:block;
-		border-radius:10%;
 		background-color:rgba(0, 0, 0, 0);
 		border-color:rgba(0, 0, 0, 0);
-		padding:20%;
+		padding-top:25%;
 	}
 
 	.projectBtn:hover{
