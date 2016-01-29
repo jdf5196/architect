@@ -98,48 +98,7 @@ body{
 	right:0;
 	bottom:0;
 	background-size: cover;
-	background-position: center top;
-	z-index: -2;
-	background-attachment: scroll;
-}
-
-.projectBackground{
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/desk.jpeg');
-	min-height:1080px;
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background-size: cover;
-	background-position: center top;
-	z-index: -2;
-	background-attachment: scroll;
-}
-
-.newsBackground{
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/news.jpeg');
-	min-height:1080px;
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background-size: cover;
-	background-position: center top;
-	z-index: -2;
-	background-attachment: scroll;
-}
-
-.aboutBackground{
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/park.jpg');
-	min-height:1080px;
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background-size: cover;
+	background-repeat:no-repeat;
 	background-position: center top;
 	z-index: -2;
 	background-attachment: scroll;
@@ -214,6 +173,45 @@ body{
 	border-radius: 50%;
 	margin-top: 75px;
 	background-color:white;
+}
+
+.projectWork{
+	min-height: 41.5vh;
+	padding-top:5.5vh;
+	text-align:center;
+	width: 100%;
+	color: white;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/desk.jpeg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+}
+
+.newsWork{
+	min-height: 41.5vh;
+	padding-top:5.5vh;
+	text-align:center;
+	width: 100%;
+	color: white;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/news.jpeg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+}
+
+.aboutWork{
+	min-height: 41.5vh;
+	padding-top:5.5vh;
+	text-align:center;
+	width: 100%;
+	color: white;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/park.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
 }
 
 .attribution, .attribution>a{
