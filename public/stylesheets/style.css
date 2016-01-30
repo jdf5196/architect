@@ -791,30 +791,6 @@ a>h4{
 		margin-right:5px;
 	}
 
-	.contactLeft, .contactRight{
-		width:100%;
-	}
-
-	.contactRight{
-		margin-bottom: 50px;
-		margin-top:-110px;
-		float:none;
-		text-align: center;
-	}
-
-	.contact-container{
-		padding-left:0px;
-		padding-right:0px;
-	}
-
-	.contactWrapper{
-		width:110%;
-		margin-left:-15px;
-	}
-
-	.contactRight>p{
-		font-size:14px;
-	}
 
 	.box{
 		margin-top:25px;
@@ -1006,6 +982,30 @@ a>h4{
 	.home{
 		margin-top:100px;
 	}
+	.contactLeft, .contactRight{
+		width:100%;
+	}
+
+	.contactRight{
+		margin-bottom: 50px;
+		margin-top:-110px;
+		float:none;
+		text-align: center;
+	}
+
+	.contact-container{
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.contactWrapper{
+		width:110%;
+		margin-left:-15px;
+	}
+
+	.contactRight>p{
+		font-size:14px;
+	}
 }
 @media (min-width: 820px){
 	.show{
@@ -1013,6 +1013,9 @@ a>h4{
 	}
 	.slideshow ul{
 		margin-top:10px;
+	}
+	.contactWrapper{
+		margin-bottom:135px;
 	}
 }
 
