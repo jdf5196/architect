@@ -89,8 +89,6 @@ router.put('/projectlist/:project', Auth, function(req, res, next){
 	project.title = req.body.title;
 	project.description = req.body.description;
 	project.description2 = req.body.description2;
-	project.mainImage = req.body.mainImage;
-	project.type = req.body.type;
 	project.url = req.body.url;
 	project.date = req.body.date;
 

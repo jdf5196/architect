@@ -90,9 +90,17 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	$scope.logOut = auth.logOut;
 	var payload = auth.currentUser();
 
-	$scope.reload = function(){
-		window.location.reload();
-	}
+	var dropbox = function(image){
+		var drop = image.substring(0, 23);
+		var finalImage = '';
+		if(drop === 'https://www.dropbox.com'){
+			var finalImage = 'https://dl.dropboxusercontent.com'+image.substring(23, image.length-5)+'?raw=0';
+		}
+		else{
+			var finalImage = image;
+		};
+		return finalImage;
+	};
 
 	$scope.addNews = function(){
 		var date = new Date();
@@ -104,6 +112,8 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 			description: $scope.description,
 			url: $scope.link,
 			date: date
+		}).success(function(){
+			window.location.reload();
 		});
 	};
 
@@ -141,24 +151,22 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	};
 
 	$scope.addProject = function(){
-		var image = $scope.mainImage;
+
 		var date = new Date();
-		var drop = image.substring(0, 23);
-		var finalImage = '';
-		if(drop === 'https://www.dropbox.com'){
-			var finalImage = 'https://dl.dropboxusercontent.com'+image.substring(23, image.length-5)+'?raw=0';
-		}
-		else{
-			var finalImage = image;
-		};
+
 		projectsList.create({
 			title: $scope.projectTitle,
 			description: $scope.description1,
 			description2: $scope.description2,
-			mainImage: finalImage,
-			type: $scope.type,
 			url: $scope.url,
-			date: date
+			date: date,
+			images:[
+				{url: dropbox($scope.mainImage), description: $scope.mainImageDescription},
+				{url: dropbox($scope.imageTwo), description: $scope.imageTwoDescription},
+				{url: dropbox($scope.imageThree), description: $scope.imageThreeDescription}
+			]
+		}).success(function(){
+			window.location.reload();
 		});
 
 	};
@@ -168,38 +176,18 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	};
 
 	$scope.updateProject = function(project){
-		var image = project.mainImage;
-		var date = new Date();
-		var drop = image.substring(0, 23);
-		var finalImage = '';
-		if(drop === 'https://www.dropbox.com'){
-			var finalImage = 'https://dl.dropboxusercontent.com'+image.substring(23, image.length-5)+'?raw=0';
-		}
-		else{
-			var finalImage = image;
-		};
 		projectsList.update({
 			title: project.title,
 			description: project.description,
 			description2: project.description2,
-			mainImage: finalImage,
-			type: project.type,
 			url: project.url,
 			date: project.date
 		}, project._id);
 	};
 
 	$scope.imageAdd = function(project){
-		var drop = project.imageUrl.substring(0, 23);
-		var image = '';
-		if(drop === 'https://www.dropbox.com'){
-			var image = 'https://dl.dropboxusercontent.com'+project.imageUrl.substring(23, project.imageUrl.length-5)+'?raw=0';
-		}
-		else{
-			var image = project.imageUrl;
-		};
 		projectsList.addImage(project, {
-			url:image,
+			url:dropbox(project.imageUrl),
 			description: project.imageDescription
 		}).success(function(){
 			project.imageUrl = '';
@@ -214,6 +202,8 @@ app.controller('editCtrl', ['$scope', 'newslist', 'projectsList', 'auth', '$http
 	$scope.register = function(){
 		auth.register($scope.userRegister).error(function(error){
 			$scope.error = error;
+		}).success(function(){
+			window.location.reload();
 		});
 	};
 

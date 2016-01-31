@@ -4,10 +4,8 @@ var ProjectSchema = new mongoose.Schema({
 	title: String,
 	description: String,
 	description2: String,
-	type: String,
 	url: String,
 	date: String,
-	mainImage: String,
 	images: [{
 		url: String,
 		description: String

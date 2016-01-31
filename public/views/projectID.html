@@ -9,19 +9,19 @@
 		<h3>{{project.title}}</h3>
 	</div>
 </div>
-<div class='idPicDiv'style='background-image:url({{project.mainImage}})'>
+<div class='idPicDiv'style='background-image:url({{project.images[0].url}})'>
 </div>
 <div class='description-container-1'>
 	<div class='description1'>
 		<span>{{project.description}}</span>
 	</div>
-	<div class='picture1' style='background-image:url({{project.images[0].url}})'></div>
+	<div class='picture1' style='background-image:url({{project.images[1].url}})'></div>
 </div>
 <div class='description-container-1'>
 	<div class='description2'>
 		<span>{{project.description2}}</span>
 	</div>
-	<div class='picture2' style='background-image:url({{project.images[1].url}})'></div>
+	<div class='picture2' style='background-image:url({{project.images[2].url}})'></div>
 </div>
 
 
@@ -48,7 +48,7 @@
 	<div class='container'>
 		<h4>Would you like to know more?</h4>
 		<br>
-		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary'>Contact Me!</button></a>
+		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary contactBtn'>Contact Me!</button></a>
 	</div>
 	<div class='developer'>Website designed and developed by <a href="https://www.linkedin.com/in/joshua-francona-55a189b0">Joshua Francona</div>
 </div>

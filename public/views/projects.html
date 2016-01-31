@@ -8,7 +8,7 @@
 <div class='wrapper projectWrapper'>
 	<ul class='projectsList'>
 		<li class='project' ng-repeat='project in projects' ng-if='project.images.length >= 2' ng-mouseenter='hover = true' ng-mouseleave='hover = false'>
-				<div class='projectDiv' style='background-image:url({{project.mainImage}})'>
+				<div class='projectDiv' style='background-image:url({{project.images[0].url}})'>
 					<div class='overlay'>
 						<h4><a class='titleLink' href='/#/projects/{{project.url}}'>{{project.title}}</a></h4>
 						<button class='wrap' ng-hide='hover === true'>.</button>
@@ -23,7 +23,7 @@
 	<div class='container'>
 		<h4>Would you like to know more?</h4>
 		<br>
-		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary'>Contact Me!</button></a>
+		<a href='/#/contact' ng-click='background("contact")'><button class='btn btn-primary contactBtn'>Contact Me!</button></a>
 	</div>
 	<div class='developer'>Website designed and developed by <a href="https://www.linkedin.com/in/joshua-francona-55a189b0">Joshua Francona</div>
 </div>
