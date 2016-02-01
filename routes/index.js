@@ -8,7 +8,6 @@ var News = mongoose.model('News');
 var User = mongoose.model('User');
 var nodemailer = require('nodemailer');
 var secret = process.env.TOKEN;
-var pass = process.env.EMAIL;
 var crypto = require('crypto');
 var uuid = require('node-uuid');
 var Auth = jwt({secret: secret, userProperty: 'payload'});
@@ -17,7 +16,7 @@ var transporter = nodemailer.createTransport('SMTP', {
 	service: 'Gmail',
 	auth: {
 		user: 'johfra8@gmail.com',
-		pass: pass
+		pass: 'pnzs nrdb dzzw tpsd'
 	}
 });
 
