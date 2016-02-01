@@ -121,7 +121,6 @@ body{
 	text-align: center;
 	color: white;
 	margin-top: 183px;
-	height:75vh;
 
 }
 
@@ -244,6 +243,7 @@ body{
 	font-size:10px;
 	color:rgba(128, 128, 128, 0.4);
 	text-align:right;
+	margin-top:-40px;
 }
 
 .developer, .developer>a{
@@ -251,6 +251,7 @@ body{
 	text-align:left;
 	color:rgba(128, 128, 128, 0.55);
 	margin-top:-15px;
+	margin-bottom:-15px;
 }
 
 .developer>a{
@@ -976,14 +977,35 @@ a>h4{
 	.home{
 		margin-top:100px;
 	}
-	.contactLeft, .contactRight{
+	.contactRight{
 		width:100%;
+	}
+
+	.contactWork{
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.contactWork>p{
+		padding-left:10%;
+		padding-right:10%;
+	}
+
+	.contactWrapper{
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.contactLeft{
+		width:100%;
+		margin-left:5%;
 	}
 
 	.contactRight{
 		margin-bottom: 50px;
 		margin-top:-110px;
 		float:none;
+		padding-left:15%;
 		text-align: center;
 	}
 
@@ -993,7 +1015,6 @@ a>h4{
 	}
 
 	.contactWrapper{
-		width:110%;
 		margin-left:-15px;
 	}
 
@@ -1068,7 +1089,7 @@ a>h4{
 		font-size:10px;
 	}
 	.developer{
-		margin-top:-23px;
+		margin-top:-15px;
 	}
 
 	.project{
