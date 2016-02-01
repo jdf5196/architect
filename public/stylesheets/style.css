@@ -857,7 +857,7 @@ a>h4{
 		background-position: center right;
 	}
 
-	.attribution, .developer{
+	.attribution, .developer, .attribution>a, .developer>a{
 		font-size:5px;
 	}
 
