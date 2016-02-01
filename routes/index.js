@@ -16,7 +16,7 @@ var Auth = jwt({secret: secret, userProperty: 'payload'});
 var transporter = nodemailer.createTransport('SMTP', {
 	service: 'Gmail',
 	auth: {
-		user: 'johfra8@gmail.com',
+		user: 'johnfranconawebsite@gmail.com',
 		pass: email
 	}
 });
