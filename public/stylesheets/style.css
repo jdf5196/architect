@@ -239,20 +239,18 @@ body{
 	background-attachment: scroll;
 }
 
-.attribution, .attribution>a{
+.attribution{
 	font-size:10px;
 	float:right;
 	color:rgba(128, 128, 128, 0.55);
 }
 
-.compassAttribution, .compassAttribution>a{
+.attribution>a{
 	font-size:10px;
-	color:rgba(128, 128, 128, 0.4);
-	text-align:right;
-	margin-top:-29px;
+	color:rgba(128, 128, 128, 0.55);;
 }
 
-.developer, .developer>a{
+.developer{
 	font-size:10px;
 	float:left;
 	color:rgba(128, 128, 128, 0.55);
@@ -260,6 +258,8 @@ body{
 
 .developer>a{
 	text-decoration: underline;
+	font-size:10px;
+	color:rgba(128, 128, 128, 0.55);
 }
 
 .symbolDiv{
