@@ -1000,6 +1000,23 @@ a>h4{
 	.contactRight>p{
 		font-size:14px;
 	}
+
+	.overlay{
+		height: 100%;
+		width:100%;
+		background:rgba(0, 0, 0, 0.45);
+		color:white;
+		transition:none;
+		padding-top:50px;
+	}
+	.overlay:hover{
+		background:rgba(0, 0, 0, 0.45);
+	}
+	.projectLink{
+		display:none;
+	}
+
+
 }
 @media (min-width: 820px){
 	.show{
@@ -1053,6 +1070,11 @@ a>h4{
 	.developer{
 		margin-top:-23px;
 	}
+
+	.project{
+		width:100%;
+	}
+
 }
 
 @media(max-width:350px) and (max-height:500px){
