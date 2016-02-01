@@ -189,6 +189,7 @@ body{
 	background-repeat:no-repeat;
 	background-position: center top;
 	background-attachment: scroll;
+	min-height:667px;
 }
 
 .projectWork{
