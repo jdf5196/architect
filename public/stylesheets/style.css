@@ -246,6 +246,13 @@ body{
 	margin-top:-40px;
 }
 
+.compassAttribution, .compassAttribution>a{
+	font-size:10px;
+	color:rgba(128, 128, 128, 0.4);
+	text-align:right;
+	margin-top:-29px;
+}
+
 .developer, .developer>a{
 	font-size:10px;
 	text-align:left;
