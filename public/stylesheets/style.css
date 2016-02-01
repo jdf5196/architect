@@ -241,9 +241,8 @@ body{
 
 .attribution, .attribution>a{
 	font-size:10px;
-	color:rgba(128, 128, 128, 0.4);
-	text-align:right;
-	margin-top:-40px;
+	float:right;
+	color:rgba(128, 128, 128, 0.55);
 }
 
 .compassAttribution, .compassAttribution>a{
@@ -255,10 +254,8 @@ body{
 
 .developer, .developer>a{
 	font-size:10px;
-	text-align:left;
+	float:left;
 	color:rgba(128, 128, 128, 0.55);
-	margin-top:-15px;
-	margin-bottom:-15px;
 }
 
 .developer>a{
@@ -858,6 +855,10 @@ a>h4{
 
 	.homeWork{
 		background-position: center right;
+	}
+
+	.attribution, .developer{
+		font-size:5px;
 	}
 
 }
