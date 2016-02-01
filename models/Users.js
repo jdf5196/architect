@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var secret = require('../bin/config');
+var secret = process.env.TOKEN;
 
 var UserSchema = new mongoose.Schema({
 	username: {type: String, lowercase: true, unique: true},
