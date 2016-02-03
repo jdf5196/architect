@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var db = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/architect';
 mongoose.connect(db);
+require('newrelic');
 require('./models/Projects');
 require('./models/News');
 require('./models/Users');
