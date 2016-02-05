@@ -79,11 +79,12 @@ app.service('newslist', ['$http', 'auth', function($http, auth){
 	};
 
 	news.delete = function(id){
-		$http.delete('/newslist/' + id._id, {
+		/*$http.delete('/newslist/' + id._id, {
 			headers: {Authorization: 'Bearer '+auth.getToken()}
 		}).success(function(){
 			news.news.splice(news.news.indexOf(news), 1);
-		});
+		});*/
+		console.log(news.news.indexOf(news));
 	};
 
 	return news;
