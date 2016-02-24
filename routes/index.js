@@ -205,7 +205,7 @@ router.post('/contact', function(req, res, next){
 
 	transporter.sendMail({
 		from: req.body.contactEmail,
-		to: 'jfrancona87@gmail.com',
+		to: 'john.d.francona@gmail.com',
 		subject: 'Website Message from '+req.body.contactName+', '+req.body.contactEmail,
 		text: req.body.contactMessage,
 		html: req.body.contactMessage
@@ -231,7 +231,7 @@ router.post('/register', function(req, res, next){
 	});
 	transporter.sendMail({
 		from: req.body.contactEmail,
-		to: 'jfrancona87@gmail.com',
+		to: 'john.d.francona@gmail.com',
 		subject: 'Website Registration Message',
 		text: 'This is your login information: username: '+req.body.username+ ' password: '+ password,
 		html: 'This is your login information: username: '+req.body.username+ ' password: '+ password
