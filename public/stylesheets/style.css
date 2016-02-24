@@ -798,6 +798,9 @@ a>h4{
 	.form-button{
 		margin-bottom: 10px;
 	}
+	.aboutDiv{
+		width:50%;
+	}
 }
 
 @media (max-width: 767px){
