@@ -855,6 +855,7 @@ a>h4{
 
 	.homeWork{
 		background-position: center right;
+		min-height: 750px;
 	}
 
 	.attribution, .developer, .attribution>a, .developer>a{
@@ -1043,6 +1044,12 @@ a>h4{
 	}
 	.projectLink{
 		display:none;
+	}
+	.prev{
+		opacity:0.7;
+	}
+	.next{
+		opacity:0.7;
 	}
 
 
