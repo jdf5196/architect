@@ -489,12 +489,14 @@ body{
 
 .aboutWrapper>.container{
 	line-height:610px;
+	text-align:center;
 }
 
 .aboutDiv{
 	display:inline-block;
 	vertical-align:middle;
 	line-height:30px;
+	text-align:left;
 }
 
 .aboutWrapper>.container>.aboutDiv>p, .aboutWrapper>.container>.aboutDiv>ul>li{
@@ -799,7 +801,7 @@ a>h4{
 		margin-bottom: 10px;
 	}
 	.aboutDiv{
-		width:50%;
+		width:70%;
 	}
 }
 
